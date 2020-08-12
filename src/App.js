@@ -32,7 +32,11 @@ const App = () => {
     }
   }
   function containsString(obj, string) {
-    let result = Object.values(obj).toString();  
+    let result = obj.username +
+                 obj.likes + 
+                 obj.comments.reduce((acc, e) => {
+                  return acc += e.username + e.text;
+                }, '')
     return result.includes(string);
   }
 
